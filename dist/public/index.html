@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз погоды</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #loading {
+            display: none;
+            margin: 20px;
+            font-size: 18px;
+        }
+        .error {
+            color: red;
+            margin: 20px;
+        }
+        #weather-data {
+            display: none;
+            width: 80%;
+        }
+        .table-container {
+            margin-top: 20px;
+            width: 80%;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .chart-container {
+            width: 80%;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Прогноз погоды</h1>
+    <form id="city-form">
+        <input type="text" id="city-input" placeholder="Введите название города" required>
+        <button type="submit">Получить прогноз</button>
+    </form>
+    <div id="loading">Загрузка...</div>
+    <div id="weather-data">
+        <div class="table-container">
+            <table id="weather-table">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Восход</th>
+                        <th>Закат</th>
+                        <th>Утро</th>
+                        <th>День</th>
+                        <th>Вечер</th>
+                        <th>Ночь</th>
+                    </tr>
+                </thead>
+                <tbody id="weather-table-body"></tbody>
+            </table>
+        </div>
+        <div class="chart-container">
+            <canvas id="temperatureChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="precipitationChart"></canvas>
+        </div>
+    </div>
+    <div id="error" class="error"></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/dist/script.js"></script>
+</body>
+</html>ыы
